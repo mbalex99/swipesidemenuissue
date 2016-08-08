@@ -13,6 +13,17 @@ class MainViewController: UIViewController {
 
     let menuButton = UIButton()
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        SideMenuManager.menuLeftSwipeToDismissGesture?.enabled = false
+        SideMenuManager.menuRightSwipeToDismissGesture?.enabled = false
+        
+        print("is left nil: \(SideMenuManager.menuLeftSwipeToDismissGesture == nil)")
+        print("is right nil: \(SideMenuManager.menuRightSwipeToDismissGesture == nil)")
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.redColor()
@@ -21,6 +32,9 @@ class MainViewController: UIViewController {
         SideMenuManager.menuLeftNavigationController = MenuViewController()
         SideMenuManager.menuLeftSwipeToDismissGesture?.enabled = false
         SideMenuManager.menuRightSwipeToDismissGesture?.enabled = false
+        
+        print("is left nil: \(SideMenuManager.menuLeftSwipeToDismissGesture == nil)")
+        print("is right nil: \(SideMenuManager.menuRightSwipeToDismissGesture == nil)")
         
         menuButton.setTitle("OPEN", forState: .Normal)
         menuButton.frame = CGRectMake(0, 0, 200, 50)
@@ -35,6 +49,9 @@ class MainViewController: UIViewController {
         presentViewController(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
         SideMenuManager.menuLeftSwipeToDismissGesture?.enabled = false
         SideMenuManager.menuRightSwipeToDismissGesture?.enabled = false
+        
+        print("is left nil: \(SideMenuManager.menuLeftSwipeToDismissGesture == nil)")
+        print("is right nil: \(SideMenuManager.menuRightSwipeToDismissGesture == nil)")
     }
 
     override func didReceiveMemoryWarning() {
