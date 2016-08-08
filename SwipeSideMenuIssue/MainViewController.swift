@@ -65,6 +65,18 @@ class MainViewController: UIViewController {
 
 class MenuViewController : UISideMenuNavigationController {
     
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        SideMenuManager.menuLeftSwipeToDismissGesture?.enabled = false
+        SideMenuManager.menuRightSwipeToDismissGesture?.enabled = false
+        
+        print("is left nil: \(SideMenuManager.menuLeftSwipeToDismissGesture == nil)")
+        print("is right nil: \(SideMenuManager.menuRightSwipeToDismissGesture == nil)")
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.blueColor()
